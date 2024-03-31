@@ -3,10 +3,10 @@ from flask_mysqldb import MySQL
 import mysql.connector as conn
 
 app = Flask(__name__)
-app.config['MYSQL_HOST'] = 'localhost'
-app.config['MYSQL_USER'] = 'root'
-app.config['MYSQL_PASSWORD'] = 'Shoyeb@12'
-app.config['MYSQL_DB'] = 'userdata'
+app.config['MYSQL_HOST'] = 'sql6.freemysqlhosting.net'
+app.config['MYSQL_USER'] = 'sql6695508'
+app.config['MYSQL_PASSWORD'] = 'PzU9wEcGRR'
+app.config['MYSQL_DB'] = 'sql6695508'
 mysql = MySQL(app)
 
 @app.route('/', methods=['GET'])
@@ -30,9 +30,9 @@ def register():
         courseAdd = request.form['courseAdd']
 
         # Save data to MySQL
-        mydb = conn.connect(host = "localhost", user = "root", passwd = "Shoyeb@12")
+        mydb = conn.connect(host = "sql6.freemysqlhosting.net", user = "sql6695508", passwd = "PzU9wEcGRR")
         cur = mydb.cursor()
-        cur.execute("use userdata")
+        cur.execute("use sql6695508")
         cur.execute("INSERT INTO userinfo (studname, fathername, mothername, phnumber, mail, dob, address, bloodgrp, deptAdd, courseAdd) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)", (studname, fathername, mothername, phnumber, mail, dob, address, bloodgrp, deptAdd, courseAdd))
         mydb.commit()
         cur.close()
